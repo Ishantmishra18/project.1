@@ -2,10 +2,16 @@
     overflow-X:hidden;
     font-family:Arial, Helvetica, sans-serif
 }
+:root{
+    --color0:white;
+    --color1:rgb(206, 203, 203 );
+    --color2:rgb(45, 44, 44);
+    --color3:black;
+}
 .page1{
     height:100vh;
     width:100%;
-    background-color: rgb(206, 203, 203 );
+    background-color:var(--color1);
     z-index: -10;
     overflow-y: hidden;
 }
@@ -16,10 +22,11 @@ nav{
     height:15vh;
     width: 100vw;
     backdrop-filter: blur(10px);
-    background-color: rgb(206, 203, 203 , 0.2);
+    background-color:rgb(206, 203, 203,0.2 );;
     position:fixed;
     top:0;
     z-index: 10;
+    color: var(--color3);
     
 
 }
@@ -40,7 +47,39 @@ nav .right button{
 nav .mid{
     font-size: 20px;
     font-weight: 600;
-    font-family:'Times New Roman', Times, serif
+    font-family:'Times New Roman', Times, serif;
+    mix-blend-mode: difference;
+}
+.toggle{
+    height:20px;
+    width:40px;
+    background-color: var(--color2);
+    border-radius:70px;
+    display:flex;
+    align-items: center;
+    justify-content: start;
+    transition: all 1s;
+}
+.ball{
+    height:15px;
+    width:15px;
+    border-radius:50%;
+    background-color: var(--color0);
+    position: relative;
+    left:2.5px;
+    
+}
+.move0{
+    position: relative;
+    transform: translate(20px);
+    transition: 0.4s;
+    
+}
+.move1{
+    position: relative;
+    transform: translate(20px);
+    transition: 0.4s;
+    
 }
 /*the nave bar is done*/
 .content{
@@ -50,20 +89,23 @@ nav .mid{
     font-size: 110px;
     padding:0px;
     display:flex;
-    
     overflow-y: hidden;
+    color:var(--color3);
 
 }
 .content .line2{
-margin-left: 4vw;
+margin-left: 0vw;
 position: relative;
 z-index: 1;
 }
 .content .line3{
     margin-left: 10vw;
     position: relative;
-z-index: 1;
+    z-index: 1;
+   
+
 } 
+
 .action{
     height:20vh;
 }
@@ -71,13 +113,13 @@ z-index: 1;
     padding:20px 50px;
     border-radius: 30% 10%;
     font-size: 20px;
-    color: white;
-    background-color: rgb(45, 44, 44);
+    color:var(--color0); 
+    background-color: var(--color2);
     border:none;
 }
 .action button:hover{
-    color: black;
-    background-color: rgb(206, 203, 203 , 0.2);
+    color: var(--color3);
+    background-color: var(--color1);
     border:1px solid black;
     cursor:pointer;
     transform:translateY(3px);
@@ -90,13 +132,14 @@ z-index: 1;
 }
 .photo{ 
     height:500px ;
-    width:550px;
+    width:500px;
     position: absolute;
     right:40px;
     z-index: 0;
     overflow-y: hidden;
-    padding:2px 2px 60px;
+    padding:2px;
     background-color: gray;
+    border-radius: 50%;
 }
 .photo img{
 height:100%;
@@ -104,6 +147,7 @@ width:100%;
 object-fit: cover;
 transform: scaleX(-1);
 filter:grayscale(100);
+
 }
 .photo:hover{
     transform:scale(1.05);
@@ -112,10 +156,87 @@ filter:grayscale(100);
 
 .bottom{
     margin: 0px;
-    background-color:rgb(45, 44, 44);
+    background-color:var(--color2);
     height:20vh;
 }
+/*landing page is done guys*/
 .page2{
-    background-color: rgb(45, 44, 44);
-    height:200vh;
+    background-color: var(--color2);
+    min-height:200vh;
+    
+}
+.page2 h2{
+    font-size: 50px;
+    padding: 2px 80px;
+    color: var(--color0);
+}
+.pro1{
+    height:80vh;
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+.pro1 div{
+     height:80%;
+    width: 40%;
+}
+.pro1 .box1 , .pro1 .box2 ,.pro1 .box3{
+  box-shadow: 2px 5px 7px black; 
+   overflow-y: hidden; 
+}
+.pro1 .box1 .img{
+    height:100%;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    background-image: url("pro1.jpg");
+    
+}
+.pro1 .box2 .img2{
+    height:100%;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    background-image: url("pro2.png");
+    background-size: 800px;
+    background-position-x: center;
+    
+}
+.pro1 .box3 .img3{
+    height:100%;
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    background-image: url("pro3.png");
+    background-size: 800px;
+    background-position:20px 400px ;
+    
+}
+.box1 button , .box2 button , .box3 button{
+    display:none;
+}
+.pro1 .box1 .btn1, .box2 .btn1, .box3 .btn1{
+    position: relative;
+    z-index: 2;
+    padding: 15px 30px;
+    border-radius: 40px;
+    border: none;
+    top:-50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display: block;
+    background-color: white;
+    transition: all linear 2s;
+
+}
+
+.pro1 .write{
+    font-size: 30px;
+    color: rgb(206, 203, 203 );
+    overflow-y: hidden;
+}
+.write h1{
+    font-size: 40px;
+    text-transform: uppercase;
 }
